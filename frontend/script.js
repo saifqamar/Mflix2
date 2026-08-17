@@ -1,22 +1,85 @@
+const API_BASE_URL = "http://127.0.0.1:3000";
 
-const movieTitleElement = document.getElementById('movie-title');
-const movieDescriptionElement = document.getElementById('movie-description');
-const movieReleaseDateElement = document.getElementById('movie-release-date');
-const movieRatingElement = document.getElementById('movie-rating');
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+const suggestBtn = document.getElementById("suggest-btn");
 
+const moviePosterElement = document.getElementById("movie-poster");
+const movieTitleElement = document.getElementById("movie-title");
+const movieYearElement = document.getElementById("movie-year");
+const movieRuntimeElement = document.getElementById("movie-runtime");
+const movieGenresElement = document.getElementById("movie-genres");
+const movieDescriptionElement = document.getElementById("movie-description");
+const movieReleaseDateElement = document.getElementById("movie-release-date");
+const movieRatingElement = document.getElementById("movie-rating");
+const movieVotesElement = document.getElementById("movie-votes");
 
-async function fetchMovieData() {
-    try {
-        const response = await fetch('http://127.0.0.1:3000/get-movie?name=a');
-        const movie = await response.json();
-        console.log('Fetched movie data:', movie);
-        movieTitleElement.textContent = movie.data.title;
-        movieDescriptionElement.textContent = movie.data.description;
-        movieReleaseDateElement.textContent = `Release Date: ${movie.data.released}`;
-        movieRatingElement.textContent = `Rating: ${movie.data.imbd.rating}`;
-    } catch (error) {
-        console.error('Error fetching movie data:', error);
-    }  
+function formatRuntime(minutes) {
+  if (!minutes && minutes !== 0) return "";
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return `${hours}h ${mins}m`;
 }
 
-fetchMovieData();
+function formatReleaseDate(dateValue) {
+  if (!dateValue) return "Unknown";
+  const date = new Date(dateValue);
+  if (Number.isNaN(date.getTime())) return "Unknown";
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+function renderMovie(movie) {
+  moviePosterElement.src = movie.poster || "";
+  moviePosterElement.alt = movie.title || "movie poster";
+
+  movieTitleElement.textContent = movie.title || "Untitled";
+  movieYearElement.textContent = movie.year || "";
+  movieRuntimeElement.textContent = formatRuntime(movie.runtime);
+  movieGenresElement.textContent = (movie.genres || []).join(", ");
+
+  movieDescriptionElement.textContent =
+    movie.fullplot || movie.plot || "No description available.";
+
+  movieReleaseDateElement.textContent = formatReleaseDate(movie.released);
+
+  const rating = movie.imdb?.rating;
+  const votes = movie.imdb?.votes;
+  movieRatingElement.textContent = rating ? `${rating}/10` : "N/A";
+  movieVotesElement.textContent = votes ? `(${votes.toLocaleString()} votes)` : "";
+}
+
+async function fetchMovieData(name) {
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}/get-movie?name=${encodeURIComponent(name)}`,
+    );
+    const result = await response.json();
+
+    if (result.status !== 200 || !result.data) {
+      console.error("Failed to fetch movie:", result.message);
+      return;
+    }
+
+    renderMovie(result.data);
+  } catch (error) {
+    console.error("Error fetching movie data:", error);
+  }
+}
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const query = searchInput.value.trim();
+  if (query) {
+    fetchMovieData(query);
+  }
+});
+
+suggestBtn.addEventListener("click", () => {
+  fetchMovieData("a");
+});
+
+fetchMovieData("a");

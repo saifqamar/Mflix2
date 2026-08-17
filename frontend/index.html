@@ -1,20 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MFlix</title>
-</head>
-<body>
-    <h1>MFlix</h1>
-    <div id="movie-card">
-        <h2 id="movie-title">Movie Title</h2>
-        <p id="movie-description">Movie Description</p>
-        <p id="movie-release-date">Release Date: </p>
-        <p id="movie-rating">Rating: </p>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Search -->
+      <section class="search-bar">
+        <form id="search-form">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search movies...."
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </section>
+
+      <!-- Banner  -->
+      <section class="banner">
+        <!-- Banner poster -->
+        <div class="poster-container">
+          <img
+            id="movie-poster"
+            src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+            alt="movie poster"
+            class="poster"
+          />
+          <button type="button" class="btn btn-suggest" id="suggest-btn">
+            <i class="fa-solid fa-shuffle"></i> Suggest Movie
+          </button>
+        </div>
+        <!-- Banner details -->
+        <div class="banner-details">
+          <div class="featured-badge">
+            <i class="fa fa-star"></i>Featured Movie
+          </div>
+
+          <h1 class="banner-title" id="movie-title">Inception</h1>
+
+          <div class="meta-tags">
+            <span id="movie-year">2010</span>
+            <span id="movie-runtime">2h 28m</span>
+            <span id="movie-genres">Action, Sci-fi</span>
+          </div>
+
+          <p class="description" id="movie-description">
+            A skilled thief is offered a chance at redemption if he can
+            successfully perform inception — planting an idea into someone’s
+            mind. But as the lines between dreams and reality blur, the heist
+            turns into a dangerous battle for control.
+          </p>
+
+          <div class="divider"></div>
+          <!-- Movie Stats -->
+          <div class="stats">
+            <div class="stat-item">
+              <i class="fa fa-calendar icon red"></i>
+              <div>
+                <label>Release Date</label>
+                <p id="movie-release-date">July 16, 2010</p>
+              </div>
+            </div>
+
+            <div class="vertical-divider"></div>
+
+            <div class="stat-item">
+              <i class="fa fa-star icon yellow"></i>
+              <div>
+                <label>Rating</label>
+                <p>
+                  <span id="movie-rating">8.8/10</span>
+                  <small id="movie-votes">(2.4M votes)</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
