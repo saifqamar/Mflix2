@@ -35,48 +35,6 @@ i {
   color: #e50914;
 }
 /* ========================================================== */
-/* SEARCH BAR */
-.search-bar {
-  max-width: 850px;
-  margin: 20px auto 0 auto;
-
-  #search-form {
-    display: flex;
-    gap: 10px;
-  }
-
-  .search-input {
-    flex: 1;
-    padding: 14px 20px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    font-family: inherit;
-    background: var(--card-bg);
-    color: white;
-  }
-
-  .search-input::placeholder {
-    color: var(--text-gray);
-  }
-
-  .search-btn {
-    padding: 0 22px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background: var(--accent-red);
-    color: white;
-    font-size: 16px;
-
-    i {
-      margin-right: 0;
-    }
-  }
-}
-
-/* ========================================================== */
 
 /* BANNER SECTION */
 .banner {
