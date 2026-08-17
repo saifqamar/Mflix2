@@ -1,7 +1,5 @@
 const API_BASE_URL = "http://127.0.0.1:3000";
 
-const searchForm = document.getElementById("search-form");
-const searchInput = document.getElementById("search-input");
 const suggestBtn = document.getElementById("suggest-btn");
 
 const moviePosterElement = document.getElementById("movie-poster");
@@ -69,14 +67,6 @@ async function fetchMovieData(name) {
     console.error("Error fetching movie data:", error);
   }
 }
-
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const query = searchInput.value.trim();
-  if (query) {
-    fetchMovieData(query);
-  }
-});
 
 suggestBtn.addEventListener("click", () => {
   fetchMovieData("a");
