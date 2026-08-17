@@ -12,6 +12,22 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- Header -->
+      <header class="navigation-bar">
+        <div class="logo"><span class="red">M</span>Flix</div>
+        <ul class="navigation-links">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">Genres</a></li>
+          <li><a href="#">Top Rated</a></li>
+          <li><a href="#"> Favourites</a></li>
+        </ul>
+        <!-- Actions -->
+        <div class="actions">
+          <div class="profile"><i class="fa fa-user"></i></div>
+        </div>
+      </header>
+
       <!-- Search -->
       <section class="search-bar">
         <form id="search-form">
@@ -40,6 +56,14 @@
           <button type="button" class="btn btn-suggest" id="suggest-btn">
             <i class="fa-solid fa-shuffle"></i> Suggest Movie
           </button>
+          <div class="poster-footer">
+            <button class="btn btn-trailer">
+              <i class="fa-solid fa-play"></i> Watch Trailer
+            </button>
+            <button class="btn btn-fav">
+              <i class="fa-solid fa-heart"></i> Add to Favourites
+            </button>
+          </div>
         </div>
         <!-- Banner details -->
         <div class="banner-details">
@@ -53,6 +77,7 @@
             <span id="movie-year">2010</span>
             <span id="movie-runtime">2h 28m</span>
             <span id="movie-genres">Action, Sci-fi</span>
+            <span>PG-13</span>
           </div>
 
           <p class="description" id="movie-description">
@@ -84,6 +109,66 @@
                   <small id="movie-votes">(2.4M votes)</small>
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Movies Card Section -->
+      <section class="movies-section">
+        <h2 class="section-title">Popular Movies</h2>
+
+        <div class="movies-grid">
+          <!-- Movie Card -->
+          <div class="movie-card">
+            <img
+              src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+              alt="movie image"
+              class="movie-image"
+            />
+
+            <div class="movie-overlay">
+              <h3 class="movie-title">Inception</h3>
+              <p>⭐ 8.8 | 2010</p>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img
+              src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
+              alt="movie image"
+              class="movie-image"
+            />
+
+            <div class="movie-overlay">
+              <h3 class="movie-title">Interstellar</h3>
+              <p>⭐ 8.6 | 2014</p>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img
+              src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+              alt="movie image"
+              class="movie-image"
+            />
+
+            <div class="movie-overlay">
+              <h3 class="movie-title">The Dark Knight</h3>
+              <p>⭐ 9.0 | 2008</p>
+            </div>
+          </div>
+
+          <div class="movie-card">
+            <img
+              src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
+              alt="movie image"
+              class="movie-image"
+            />
+
+            <div class="movie-overlay">
+              <h3 class="movie-title">Interstellar</h3>
+              <p>⭐ 8.6 | 2014</p>
             </div>
           </div>
         </div>
