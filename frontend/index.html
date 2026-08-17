@@ -12,47 +12,34 @@
   </head>
   <body>
     <div class="wrapper">
-      <!-- Header -->
-      <header class="navigation-bar">
-        <div class="logo"><span class="red">M</span>Flix</div>
-        <ul class="navigation-links">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Genres</a></li>
-          <li><a href="#">Top Rated</a></li>
-          <li><a href="#"> Favourites</a></li>
-        </ul>
-        <!-- Actions -->
-        <div class="actions">
-          <p class="search-container">
-            <input
-              type="search"
-              placeholder="Search movies...."
-              class="search"
-            /><i class="fa-solid fa-magnifying-glass"></i>
-          </p>
-
-          <div class="profile"><i class="fa fa-user"></i></div>
-        </div>
-      </header>
+      <!-- Search -->
+      <section class="search-bar">
+        <form id="search-form">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search movies...."
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </section>
 
       <!-- Banner  -->
       <section class="banner">
         <!-- Banner poster -->
         <div class="poster-container">
           <img
+            id="movie-poster"
             src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-            alt="Inception"
+            alt="movie poster"
             class="poster"
           />
-          <div class="poster-footer">
-            <button class="btn btn-trailer">
-              <i class="fa-solid fa-play"></i> Watch Trailer
-            </button>
-            <button class="btn btn-fav">
-              <i class="fa-solid fa-heart"></i> Add to Favourites
-            </button>
-          </div>
+          <button type="button" class="btn btn-suggest" id="suggest-btn">
+            <i class="fa-solid fa-shuffle"></i> Suggest Movie
+          </button>
         </div>
         <!-- Banner details -->
         <div class="banner-details">
@@ -60,16 +47,15 @@
             <i class="fa fa-star"></i>Featured Movie
           </div>
 
-          <h1 class="banner-title">Inception</h1>
+          <h1 class="banner-title" id="movie-title">Inception</h1>
 
           <div class="meta-tags">
-            <span> 2010</span>
-            <span> 2h 28m</span>
-            <span>Action, Sci-fi</span>
-            <span>PG-13</span>
+            <span id="movie-year">2010</span>
+            <span id="movie-runtime">2h 28m</span>
+            <span id="movie-genres">Action, Sci-fi</span>
           </div>
 
-          <p class="description">
+          <p class="description" id="movie-description">
             A skilled thief is offered a chance at redemption if he can
             successfully perform inception — planting an idea into someone’s
             mind. But as the lines between dreams and reality blur, the heist
@@ -83,7 +69,7 @@
               <i class="fa fa-calendar icon red"></i>
               <div>
                 <label>Release Date</label>
-                <p>July 16, 2010</p>
+                <p id="movie-release-date">July 16, 2010</p>
               </div>
             </div>
 
@@ -93,68 +79,11 @@
               <i class="fa fa-star icon yellow"></i>
               <div>
                 <label>Rating</label>
-                <p>8.8/10 <small>(2.4M votes)</small></p>
+                <p>
+                  <span id="movie-rating">8.8/10</span>
+                  <small id="movie-votes">(2.4M votes)</small>
+                </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Movies Card Section -->
-      <section class="movies-section">
-        <h2 class="section-title">Popular Movies</h2>
-
-        <div class="movies-grid">
-          <!-- Movie Card -->
-          <div class="movie-card">
-            <img
-              src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-              alt="movie image"
-              class="movie-image"
-            />
-
-            <div class="movie-overlay">
-              <h3 class="movie-title">Inception</h3>
-              <p>⭐ 8.8 | 2010</p>
-            </div>
-          </div>
-
-          <div class="movie-card">
-            <img
-              src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
-              alt="movie image"
-              class="movie-image"
-            />
-
-            <div class="movie-overlay">
-              <h3 class="movie-title">Interstellar</h3>
-              <p>⭐ 8.6 | 2014</p>
-            </div>
-          </div>
-
-          <div class="movie-card">
-            <img
-              src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
-              alt="movie image"
-              class="movie-image"
-            />
-
-            <div class="movie-overlay">
-              <h3 class="movie-title">The Dark Knight</h3>
-              <p>⭐ 9.0 | 2008</p>
-            </div>
-          </div>
-
-          <div class="movie-card">
-            <img
-              src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg"
-              alt="movie image"
-              class="movie-image"
-            />
-
-            <div class="movie-overlay">
-              <h3 class="movie-title">Interstellar</h3>
-              <p>⭐ 8.6 | 2014</p>
             </div>
           </div>
         </div>
