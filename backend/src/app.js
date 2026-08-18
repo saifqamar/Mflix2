@@ -12,7 +12,7 @@ const fastify = Fastify({
 
 // cors
 fastify.register(cors, {
-  origin: "*",
+  origin: "https://hmflix-production-16e9.up.railway.app",
 });
 
 // ============================================
