@@ -1,5 +1,5 @@
 import { createConnection } from "mongoose";
-import mongoose from "mongoose";
+/*import mongoose from "mongoose";*/
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -24,8 +24,7 @@ async function getMovie(movieName) {
     const movies_coll = db.collection("movies");
     // const movie = await movies_coll.findOne({title: movieName})
     const randomMovies = await movies_coll
-      .aggregate([{ $sample: { size: 1 } }])
-      .toArray();
+      .aggregate([{ $sample: { size: 1 } }]);
 
     const randomMovie = randomMovies[0];
     console.log("movieName", movieName);
