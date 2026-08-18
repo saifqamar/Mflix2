@@ -1,6 +1,7 @@
 const API_BASE_URL = "https://empathetic-empathy-production-ad60.up.railway.app";
 
 const suggestBtn = document.getElementById("suggest-btn");
+// test comment
 
 const moviePosterElement = document.getElementById("movie-poster");
 const movieTitleElement = document.getElementById("movie-title");
