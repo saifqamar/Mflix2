@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://mflix-production-70dc.up.railway.app";
+const API_BASE_URL = "https://ample-gentleness-production-f104.up.railway.app";
 
 const suggestBtn = document.getElementById("suggest-btn");
 
