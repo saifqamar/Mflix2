@@ -53,15 +53,15 @@ function renderMovie(movie) {
 
 async function fetchMovieData(name) {
   try {
-    const response = await fetch(
-      `${API_BASE_URL}/get-movie?name=${encodeURIComponent(name)}`,
-    );
     const result = await response.json();
 
-    if (result.status !== 200 || !result.data) {
-      console.error("Failed to fetch movie:", result.message);
-      return;
-    }
+console.log("Backend response:", result);
+console.log("HTTP status:", response.status);
+
+if (!response.ok || !result.data) {
+  console.error("Failed to fetch movie:", result);
+  return;
+}
   
     renderMovie(result.data);
   } catch (error) {
