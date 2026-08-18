@@ -1,7 +1,6 @@
 const API_BASE_URL = "https://mflix-production-70dc.up.railway.app";
 
 const suggestBtn = document.getElementById("suggest-btn");
-// test comment
 
 const moviePosterElement = document.getElementById("movie-poster");
 const movieTitleElement = document.getElementById("movie-title");
@@ -15,15 +14,20 @@ const movieVotesElement = document.getElementById("movie-votes");
 
 function formatRuntime(minutes) {
   if (!minutes && minutes !== 0) return "";
+
   const hours = Math.floor(minutes / 60);
   const mins = minutes % 60;
+
   return `${hours}h ${mins}m`;
 }
 
 function formatReleaseDate(dateValue) {
   if (!dateValue) return "Unknown";
+
   const date = new Date(dateValue);
+
   if (Number.isNaN(date.getTime())) return "Unknown";
+
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -37,7 +41,9 @@ function renderMovie(movie) {
 
   movieTitleElement.textContent = movie.title || "Untitled";
   movieYearElement.textContent = movie.year || "";
+
   movieRuntimeElement.textContent = formatRuntime(movie.runtime);
+
   movieGenresElement.textContent = (movie.genres || []).join(", ");
 
   movieDescriptionElement.textContent =
@@ -47,22 +53,31 @@ function renderMovie(movie) {
 
   const rating = movie.imdb?.rating;
   const votes = movie.imdb?.votes;
+
   movieRatingElement.textContent = rating ? `${rating}/10` : "N/A";
-  movieVotesElement.textContent = votes ? `(${votes.toLocaleString()} votes)` : "";
+
+  movieVotesElement.textContent = votes
+    ? `(${votes.toLocaleString()} votes)`
+    : "";
 }
 
 async function fetchMovieData(name) {
   try {
+    const response = await fetch(
+      `${API_BASE_URL}/get-movie?name=${encodeURIComponent(name)}`
+    );
+
     const result = await response.json();
 
-console.log("Backend response:", result);
-console.log("HTTP status:", response.status);
+    // Debugging information
+    console.log("Backend response:", result);
+    console.log("HTTP status:", response.status);
 
-if (!response.ok || !result.data) {
-  console.error("Failed to fetch movie:", result);
-  return;
-}
-  
+    if (!response.ok || !result.data) {
+      console.error("Failed to fetch movie:", result);
+      return;
+    }
+
     renderMovie(result.data);
   } catch (error) {
     console.error("Error fetching movie data:", error);
