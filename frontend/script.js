@@ -61,7 +61,7 @@ async function fetchMovieData(name) {
       console.error("Failed to fetch movie:", result.message);
       return;
     }
-
+  
     renderMovie(result.data);
   } catch (error) {
     console.error("Error fetching movie data:", error);
