@@ -12,7 +12,7 @@ const fastify = Fastify({
 
 // cors
 fastify.register(cors, {
-  origin: ["http://127.0.0.1:3000", "http://192.168.18.18:3000", "https://aesthetic-biscotti-4fe88a.netlify.app"],
+  origin: ["http://127.0.0.1:3000", "http://localhost:3000", "http://192.168.18.191:3000", "https://aesthetic-biscotti-4fe88a.netlify.app"],
 });
 
 // ============================================
