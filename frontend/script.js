@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:3000";
+const API_BASE_URL = "https://ample-gentleness-production-f104.up.railway.app";
 
 const suggestBtn = document.getElementById("suggest-btn");
 
