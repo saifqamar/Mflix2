@@ -12,7 +12,7 @@ const fastify = Fastify({
 
 // cors
 fastify.register(cors, {
-  origin: ["https://ample-gentleness-production-f104.up.railway.app", "http://localhost:3000", "http://192.168.18.18:3000", "https://stately-pixie-f906a6.netlify.app/"],
+  origin: ["https://ample-gentleness-production-f104.up.railway.app", "http://localhost:3000", "http://192.168.18.18:3000", "https://aesthetic-biscotti-4fe88a.netlify.app/"],
 });
 
 // ============================================
