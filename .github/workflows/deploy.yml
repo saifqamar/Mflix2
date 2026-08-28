@@ -19,8 +19,15 @@ jobs:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
       - name: Deploy to EC2
+        env:
+          EC2_USER: ${{ vars.EC2_USER }}
+          EC2_HOST: ${{ vars.EC2_HOST }}
         run: |
-          ssh -o StrictHostKeyChecking=no "${{ vars.EC2_USER }}@${{ vars.EC2_HOST }}" << 'EOF'
+          echo "Connecting to EC2..."
+          echo "User: [$EC2_USER]"
+          echo "Host: [$EC2_HOST]"
+
+          ssh -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" << 'EOF'
             cd ~/mflix
             git pull origin main
             cd backend
