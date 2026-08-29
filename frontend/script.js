@@ -11,6 +11,7 @@ const movieDescriptionElement = document.getElementById("movie-description");
 const movieReleaseDateElement = document.getElementById("movie-release-date");
 const movieRatingElement = document.getElementById("movie-rating");
 const movieVotesElement = document.getElementById("movie-votes");
+const movieCastElement = document.getElementById("movie-cast");
 
 function formatRuntime(minutes) {
   if (!minutes && minutes !== 0) return "";
@@ -38,7 +39,7 @@ function renderMovie(movie) {
   movieYearElement.textContent = movie.year || "";
   movieRuntimeElement.textContent = formatRuntime(movie.runtime);
   movieGenresElement.textContent = (movie.genres || []).join(", ");
-
+  movieCastElement.textContent = (movie.cast || []).join(", ");
   movieDescriptionElement.textContent =
     movie.fullplot || movie.plot || "No description available.";
 
