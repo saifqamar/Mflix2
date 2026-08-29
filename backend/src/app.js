@@ -3,6 +3,7 @@ import getMovieController from "./controllers/movie.controller.js";
 import { createConnection } from "mongoose";
 import dotenv from "dotenv";
 import cors from "@fastify/cors";
+import getMovieService from "./services/movies.service.js";
 dotenv.config();
 
 // initialize app
@@ -21,15 +22,23 @@ fastify.register(cors, {
 
 fastify.get("/hello", (request, reply) => {
   const { name } = request.query;
-  reply.send(`hello ${name}`);
+  reply.send(`hello`);
 });
 
 fastify.get("/get-movie", (request, reply) => {
-  getMovieController(request, reply);
+   const {name} = request.query
+    if (!name) {
+        reply.send({status: 400, message: 'name is required'})
+    }
+    console.log(typeof name)
+    if (typeof name === "string"){
+        const data = await getMovieService(name)
+        reply.send(data)
+    }
 });
 
-fastify.get("/get-movies", (request, reply) => {
-  reply.send("hello world");
+fastify.get("/rating", (request, reply) => {
+  reply.send("ratings ...");
 });
 
 // ============================================

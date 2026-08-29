@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://mflix-production-70dc.up.railway.app";
+const API_BASE_URL = "http://16.171.12.253:3000";
 
 const suggestBtn = document.getElementById("suggest-btn");
 
