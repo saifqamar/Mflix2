@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://16.171.12.253:3000";
+const API_BASE_URL = "https://16.171.12.253:3000";
 
 const suggestBtn = document.getElementById("suggest-btn");
 
