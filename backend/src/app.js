@@ -25,7 +25,7 @@ fastify.get("/hello", (request, reply) => {
   reply.send(`hello`);
 });
 
-fastify.get("/get-movie", (request, reply) => {
+fastify.get("/get-movie", async(request, reply) => {
    const {name} = request.query
     if (!name) {
         reply.send({status: 400, message: 'name is required'})
