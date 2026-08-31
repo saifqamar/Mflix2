@@ -10,7 +10,7 @@ db.on("connected", () => {
 db.on("error", (err) => {
   console.log("error connecting to mongodb", err);
 });
-
+//git push
 async function getMovie(movieName) {
   if (!movieName) {
     throw new Error("movieName is required");
