@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./backend
+    container_name: mflix-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+
+  frontend:
+    build: ./frontend
+    container_name: mflix-frontend
+    ports:
+      - "8080:80"
