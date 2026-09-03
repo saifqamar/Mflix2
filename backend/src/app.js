@@ -11,6 +11,7 @@ const fastify = Fastify({
   logger: true,
 });
 // CI/CD test
+//DOCKER TEST
 // cors
 fastify.register(cors, {
   origin: ["http://127.0.0.1:3000", "http://localhost:3000", "http://192.168.18.191:3000", "https://sensational-melba-0e8d8e.netlify.app", " http://192.168.18.192:3000 "],
